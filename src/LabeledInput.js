@@ -1,23 +1,23 @@
 import React from 'react';
 
 
-const LabeledInput = (props) => {
-    const getInput = (input) => {
-        input.onChange(
-        );
-    };
+const LabeledInput = ({user, label, placeholder}) => {
+    function handleChange (event){
+        let inputText = event.target.value;
+        return inputText;
+    }
     return (
         <div>
         <label
-            htmlFor={props.id}
+            htmlFor={user.id}
         >
-            {}
+            {label}
         </label>
         <input
         type="text"
-        id={props.id}
-        placeholder={'Input User Id'}
-        value={getInput()}>
+        id={user.id}
+        placeholder={placeholder}
+        onChange={handleChange}>
         </input>
 </div>
     )
