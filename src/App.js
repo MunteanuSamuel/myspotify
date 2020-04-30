@@ -1,38 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LabeledInput from './LabeledInput'
 
 function App() {
-  const learnReactDescription = 'Learn React from Scoala IT';
-  const reactTutorialUrl = 'https://www.w3schools.com/REACT/default.asp';
-  const getGithubProfile = () => 'https://github.com/MunteanuSamuel';
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p onClick={ () => { console.log("I was clicked"); }}>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href= {reactTutorialUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          { learnReactDescription }
-        </a>
-        <a
-            className="App-link"
-            href= {getGithubProfile()}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-        My github profile
-        </a>
 
-      </header>
-    </div>
+  const learnReactDescription = 'Learn React from Scoala IT';
+  const reactTurorialUrl = 'https://www.w3schools.com/REACT/default.asp';
+
+  const getGithubProfile = () => 'https://github.com/mmioana/webdevelopment-02';
+
+  return (
+      <div className="App">
+        <header className="App-header">
+          <a href="/categories">Link to another page</a>
+          <LabeledInput
+              id="client-id"
+              label="Client Id"
+              placeholder="Client Id Placeholder"
+              defaultValue="Default"
+          />
+        </header>
+      </div>
   );
 }
 
 export default App;
+

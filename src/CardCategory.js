@@ -1,8 +1,9 @@
 import React from "react";
 
+
 const CardCategory = ({categorie, icon}) => {
     return (
-        <div className="card_category">
+        <div id="carduri">
       <span>
         <div>{icon}</div>
       </span>
