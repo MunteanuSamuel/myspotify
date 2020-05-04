@@ -1,11 +1,14 @@
 import React from "react";
+import {faHome} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-
-const CardCategory = ({categorie, icon}) => {
+const CardCategory = ({categorie}) => {
     return (
         <div id="carduri">
       <span>
-        <div>{icon}</div>
+        <FontAwesomeIcon
+            icon={faHome}
+        />
       </span>
             <p>{categorie}</p>
         </div>

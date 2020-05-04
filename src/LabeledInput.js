@@ -1,6 +1,7 @@
 import React from 'react';
-import './LabeledInput.css'
-
+import './Login.css'
+import {faHome} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 /*const LabeledInput = ({user, label, placeholder}) => {
     let value = "";
@@ -98,9 +99,9 @@ class LabeledInput extends React.Component {
                     defaultValue={"default"}
                     onChange={this.handleChange}>
                 </input>
-                <span>
-                    <i className="fas fa-home"></i>
-                </span>
+                <FontAwesomeIcon
+                    icon={faHome}
+                />
             </div>
         )
     }

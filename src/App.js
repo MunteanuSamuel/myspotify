@@ -1,27 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import LabeledInput from './LabeledInput'
+import './NavBar.css';
+import About from './pages/About';
+import Login from './pages/Login';
+import Category from "./pages/category";
+import NavBar from "./NavBar"
+import Categories from "./pages/Categories";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 function App() {
-
-  const learnReactDescription = 'Learn React from Scoala IT';
-  const reactTurorialUrl = 'https://www.w3schools.com/REACT/default.asp';
-
-  const getGithubProfile = () => 'https://github.com/mmioana/webdevelopment-02';
-
   return (
+    <Router>
       <div className="App">
-        <header className="App-header">
-          <a href="/categories">Link to another page</a>
-          <LabeledInput
-              id="client-id"
-              label="Client Id"
-              placeholder="Client Id Placeholder"
-              defaultValue="Default"
-          />
-        </header>
+          <NavBar />
+          <Switch>
+              <Route path={"/"} exact={true} render={ () => <div>Home Page</div>}/>
+              <Route path={"/about"} component={About}/>
+              <Route path={"/login"} component={Login}/>
+              <Route path={"/categories"} component={Categories}> <Category/> </Route>
+          </Switch>
       </div>
+    </Router>
   );
 }
 
