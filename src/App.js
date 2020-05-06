@@ -17,7 +17,7 @@ function App() {
               <Route path={"/"} exact={true} render={ () => <div>Home Page</div>}/>
               <Route path={"/about"} component={About}/>
               <Route path={"/login"} component={Login}/>
-              <Route path={"/categories"} component={Categories}> <Category/> </Route>
+              <Route path={"/categories"} component={Categories}></Route>
           </Switch>
       </div>
     </Router>

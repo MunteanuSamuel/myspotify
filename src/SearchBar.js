@@ -19,8 +19,8 @@ class LabeledInput extends React.Component {
         return (
             <form className={'form-inline my-2 my-lg-0'}>
                 <input
-                    className={"form-control"}
-                    type={"text"}
+                    className="search-bar"
+                    type="text"
                     id={this.props.id}
                     value={this.state.value}
                     placeholder={this.props.placeholder}

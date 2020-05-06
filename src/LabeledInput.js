@@ -29,13 +29,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 };*/
 
 class LabeledInput extends React.Component {
-    state = {
-      value: "",
-    };
+    state = {};
 
     constructor(props) {
         super(props);
-        this.state.value = this.props.placeholder;
+        this.state.value = this.props.defaultValue;
         console.log("LabeledInput inside constructor");
     }
 
@@ -66,24 +64,29 @@ class LabeledInput extends React.Component {
         console.log("LabeledInput inside componentWillMount");
     }
 
-    handleChange = e => {
-        //let inputText = e.target.value;
+    onChangeHandler = e => {
         console.log(e.target.value);
+        const value = e.target.value;
+
+        this.props.change(this.props.id, value)
+
         this.setState({
-            value: e.target.value
+            value: value
         });
     };
 
     render() {
         console.log("LabeledInput inside render");
+
         const style = {
           marginBottom: '10px',
           color: '#929929',
           fontSize: '18px',
           fontFamily: 'roboto'
         };
+
         return (
-            <div className={'input-group labeled-input'}>
+            <div className='input-group labeled-input'>
                 <label
                     htmlFor={this.props.id}
                     style={style}
@@ -91,17 +94,13 @@ class LabeledInput extends React.Component {
                     {this.props.label}
                 </label>
                 <input
-                    className={"form-control"}
-                    type={"text"}
+                    className="form-control"
+                    type="text"
                     id={this.props.id}
                     value={this.state.value}
                     placeholder={this.props.placeholder}
-                    defaultValue={"default"}
-                    onChange={this.handleChange}>
+                    onChange={this.onChangeHandler}>
                 </input>
-                <FontAwesomeIcon
-                    icon={faHome}
-                />
             </div>
         )
     }

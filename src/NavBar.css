@@ -1,7 +1,14 @@
+
 .nav-links {
     width: 50%;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    text-align: center;
     list-style: none;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }

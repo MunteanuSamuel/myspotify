@@ -10,6 +10,7 @@ class Category extends React.Component {
     render () {
         return (
             <div>
+                <h1>Category Page</h1>
                 {`category page for ${ this.props.match !==null ? this.props.match.params.id : 'unknown' }`}
             </div>
         )

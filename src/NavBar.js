@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import SearchBar from "./SearchBar";
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import './NavBar.css'
 
 
 const NavBar = () => {
@@ -13,10 +14,9 @@ const NavBar = () => {
                     aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <SearchBar/>
-                <ul className="navbar-nav mr-auto">
+            <SearchBar/>
+            <div className="collapse navbar-collapse">
+                <ul className="navbar-nav">
                     <li className="nav-item active">
                         <Link className="nav-link" to="/"><FontAwesomeIcon
                             icon={faHome}
