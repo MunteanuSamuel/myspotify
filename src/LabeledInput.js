@@ -1,43 +1,17 @@
 import React from 'react';
 import './Login.css'
-import {faHome} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-/*const LabeledInput = ({user, label, placeholder}) => {
-    let value = "";
-    function handleChange (event){
-        let inputText = event.target.value;
-        console.log(inputText);
-        return inputText;
-    }
-    return (
-        <div>
-        <label
-            htmlFor={user.id}
-        >
-            {label}
-        </label>
-        <input
-        type="text"
-        id={user.id}
-        value={value}
-        placeholder={placeholder}
-        onChange={this.handleChange}>
-        </input>
-</div>
-    )
-};*/
 
 class LabeledInput extends React.Component {
     state = {};
 
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         this.state.value = this.props.defaultValue;
         console.log("LabeledInput inside constructor");
-    }
+    }*/
 
-    static getDerivedStateFromProps(props, state) {
+   /* static getDerivedStateFromProps(props, state) {
         console.log("LabeledInput inside getDerivedStateFromProps", props, state);
         return null;
     }
@@ -62,13 +36,13 @@ class LabeledInput extends React.Component {
 
     componentWillMount() {
         console.log("LabeledInput inside componentWillMount");
-    }
+    }*/
 
     onChangeHandler = e => {
         console.log(e.target.value);
         const value = e.target.value;
 
-        this.props.change(this.props.id, value)
+        this.props.change(this.props.id, value);
 
         this.setState({
             value: value

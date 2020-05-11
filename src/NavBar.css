@@ -5,10 +5,12 @@
     justify-content: space-around;
     text-align: center;
     list-style: none;
+    flex-direction: row;
 }
 
 .nav-item {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    flex-direction: row;
 }

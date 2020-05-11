@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 class Category extends React.Component {
 
     componentDidMount() {
+        console.log("pagina categorie");
       console.log(this.props);
     };
 

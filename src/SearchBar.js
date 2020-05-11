@@ -24,7 +24,6 @@ class LabeledInput extends React.Component {
                     id={this.props.id}
                     value={this.state.value}
                     placeholder={this.props.placeholder}
-                    defaultValue={"default"}
                     onChange={this.handleChange}>
                 </input>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
