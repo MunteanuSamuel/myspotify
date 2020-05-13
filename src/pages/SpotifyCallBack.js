@@ -1,5 +1,5 @@
 import React from "react";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import queryString  from "query-string";
 
 class SpotifyCallBack extends React.Component{
@@ -9,7 +9,7 @@ class SpotifyCallBack extends React.Component{
         const hash = this.props.location.hash ? this.props.location.hash : "";
         if (hash) {
             const parsedString = queryString.parse(hash);
-            const date = new Date;
+            const date = new Date();
             const token = {
               token: parsedString.access_token,
               expiration: date.getTime() + (parsedString.expires_in * 1000)

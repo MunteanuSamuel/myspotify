@@ -3,11 +3,13 @@ import './App.css';
 import './NavBar.css';
 import About from './pages/About';
 import Login from './pages/Login';
-import Category from "./pages/category";
+import Category from "./pages/Category";
 import NavBar from "./NavBar"
 import Categories from "./pages/Categories";
 import {Route, Switch} from 'react-router-dom'
 import SpotifyCallBack from "./pages/SpotifyCallBack";
+import Playlists from "./pages/Playlists";
+import Tracks from "./Tracks";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
               <Route path={"/login"} component={Login}/>
               <Route path={"/categories"} exact component={Categories}/>
               <Route path={"/categories/:id"} component={Category}/>
+              <Route path={"/playlists/:id"} component={Playlists}/>
+              <Route path={"/tracks/:id"} component={Tracks}/>
               <Route path={"/callback"} component={SpotifyCallBack}/>
           </Switch>
       </div>
