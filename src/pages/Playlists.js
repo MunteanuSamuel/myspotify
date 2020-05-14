@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import Playlist from '../components/Playlist'
 
 class Playlists extends React.Component {
 
@@ -47,21 +48,15 @@ class Playlists extends React.Component {
 
         return (
             <div>
-                <h1>{categoryName}</h1>
+               {/*<h1>{categoryName}</h1>*/}
                 <section>
                     {this.state.playlists.map(playlist => {
                         return (
-                            <Link
-                                to={{
-                                    pathname: `/tracks/${playlist.id}`,
-                                    state: {playlistName: playlist.name}
-                                }}
-                            >
-                                <div>
-                                    <img src={playlist.image} alt={`Playlist ${playlist.name} image`}/>
-                                    <h3>{playlist.name}</h3>
-                                </div>
-                            </Link>
+                            <Playlist
+                                name={playlist.name}
+                                id={playlist.id}
+                                image={playlist.images}
+                            />
                             )
                         })
                     }

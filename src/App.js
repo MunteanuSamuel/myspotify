@@ -1,15 +1,15 @@
 import React from 'react';
-import './App.css';
-import './NavBar.css';
+import './style/App.css';
+import './style/NavBar.css';
 import About from './pages/About';
 import Login from './pages/Login';
-import Category from "./pages/Category";
-import NavBar from "./NavBar"
+import Category from "./components/Category";
+import NavBar from "./components/NavBar"
 import Categories from "./pages/Categories";
 import {Route, Switch} from 'react-router-dom'
 import SpotifyCallBack from "./pages/SpotifyCallBack";
 import Playlists from "./pages/Playlists";
-import Tracks from "./Tracks";
+import Tracks from "./pages/Tracks";
 
 function App() {
   return (

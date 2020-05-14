@@ -1,6 +1,6 @@
 
 import React from "react";
-import LabeledInput from "../LabeledInput";
+import LabeledInput from "../components/LabeledInput";
 
 
 class Login extends React.Component {

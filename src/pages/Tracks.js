@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Player from "./components/Player";
+import Player from "../components/Player";
 
 class Tracks extends React.Component {
 
