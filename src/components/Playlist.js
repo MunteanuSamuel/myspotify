@@ -11,7 +11,8 @@ class Playlist extends React.Component {
             <Link
                 to={{
                     pathname: `/tracks/${this.props.id}`,
-                    state: {playlistName: this.props.name}
+                    state: {playlistName: this.props.name,
+                            playlistImage: this.props.image}
                 }}
             >
                 <div>

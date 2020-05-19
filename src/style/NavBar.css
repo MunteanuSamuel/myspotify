@@ -1,16 +1,27 @@
 
+.navbar
+
+.nav-container {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav-links {
     width: 50%;
     display: flex;
     justify-content: space-around;
     text-align: center;
     list-style: none;
-    flex-direction: row;
+    flex-flow: row wrap;
+    color: black;
 }
 
 .nav-item {
     display: flex;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: baseline;
     flex-direction: row;
 }

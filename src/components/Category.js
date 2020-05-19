@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
+import '../style/category.css';
 
 /*
 function Category ({categories}) {
@@ -45,7 +45,7 @@ class Category extends React.Component {
         // )
 
         return (
-            <div>
+            <div className="category">
                 <Link
                     to={{
                         pathname: `/playlists/${this.props.id}`,
@@ -55,6 +55,7 @@ class Category extends React.Component {
                     }}
                 >
                     { this.props.name }
+                    <img src={this.props.url} alt={`Image for ${this.props.name}`}/>
                 </Link>
             </div>
         );
