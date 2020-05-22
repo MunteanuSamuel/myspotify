@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import SearchBar from "./SearchBar";
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import '../style/NavBar.css'
+import '../ComponentsStyle/NavBar.css'
 
 
 const NavBar = () => {

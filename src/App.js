@@ -1,6 +1,6 @@
 import React from 'react';
-import './style/App.css';
-import './style/NavBar.css';
+import './App.css';
+import './ComponentsStyle/NavBar.css';
 import About from './pages/About';
 import Login from './pages/Login';
 import Category from "./components/Category";

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/Login.css'
+import '../PagesStyle/Login.css'
 
 
 class LabeledInput extends React.Component {

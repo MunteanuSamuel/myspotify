@@ -48,23 +48,21 @@ class Categories extends React.Component {
 
     componentDidMount() {
 
-
         const token = checkAndReturnToken(this.props.history);
 
         if (token === null) {
             return;
         }
 
-        fetch('https://api.spotify.com/v1/browse/categories', {
-            method:'GET',
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then(result => {
-            console.log(result);
-            return result.json()
-        }).then(data => {
-            const categories = data.categories.items.map(item => {
+        const getCategories = async () => {
+            const categories = await fetch('https://api.spotify.com/v1/browse/categories', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const categoriesResp = await categories.json();
+            const categoriesMap = categoriesResp.categories.items.map(item => {
                 return {
                     id: item.id,
                     name: item.name,
@@ -72,8 +70,11 @@ class Categories extends React.Component {
                 };
             });
             this.setState({
-                categories: categories});
-        });
+                categories: categoriesMap});
+            console.log(categoriesMap);
+        };
+
+        getCategories();
 
     }
 
@@ -81,6 +82,7 @@ class Categories extends React.Component {
         return this.state.categories.map(category => {
             return (
                 <Category
+                    key={category.name}
                     name={category.name}
                     id={category.id}
                     url={category.url}

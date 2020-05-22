@@ -1,0 +1,28 @@
+
+.categories__wrapper {
+    display: inline-block;
+
+    height: 100%;
+    width: 250px;
+
+    align-items: center;
+
+    box-sizing: content-box;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: content-box;
+
+    width: 250px;
+    height: 250px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+}
+

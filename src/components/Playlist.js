@@ -16,11 +16,10 @@ class Playlist extends React.Component {
                 }}
             >
                 <div>
-                    <img src={this.props.image} alt={`Playlist ${this.props.name} image`}/>
+                    <img src={this.props.image} alt={`Playlist ${this.props.name}`}/>
                     <h3>{this.props.name}</h3>
                 </div>
             </Link>
-
         )
     }
 

@@ -1,0 +1,39 @@
+.tracks__wrapper {
+    padding-left: 0;
+    list-style: none;
+
+    height: 100%;
+    overflow-y: auto;
+}
+
+.content__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.content__wrapper > section {
+    width: 50%;
+}
+
+.section__tracks {
+    height: 400px;
+    overflow: hidden;
+}
+
+.section__player {
+    display: flex;
+}
+
+.section__player iframe {
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 576px) {
+    .content__wrapper {
+        flex-direction: column;
+    }
+
+    .content__wrapper > section {
+        width: 100%;
+    }
+}

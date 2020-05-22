@@ -1,0 +1,66 @@
+.track__wrapper {
+    display: flex;
+    flex-direction: row;
+
+    padding: 12px 10px 14px;
+
+    cursor: pointer;
+
+    transition: background-color .5s;
+}
+
+.track__wrapper:not(.track__wrapper--selected):hover {
+    background-color: #ecfcff;
+}
+
+.track__wrapper--selected {
+    background-color: #21D4FD;
+}
+
+.track__main {
+    flex-grow: 1;
+}
+
+.track__main h3 {
+    font-size: 14px;
+    line-height: 17px;
+    color: #727272;
+    font-weight: bold;
+}
+
+.track__wrapper--selected .track__main h3 {
+    color: white
+}
+
+.track__wrapper--selected .artist,
+.track__wrapper--selected .track__duration {
+    color: #E4E4E4
+}
+
+.track__duration {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+.artist__wrapper {
+    padding-left: 0;
+    list-style: none;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.artist {
+    margin-right: 6px;
+}
+
+.artist,
+.track__duration {
+    color: #BFBFBF;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.artist:not(:last-child)::after {
+    content: ','
+}
