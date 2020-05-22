@@ -36,8 +36,7 @@ const NavBar = () => {
     };
 
         const disableLogin = () => {
-                if (token) {
-                    console.log(user);
+                if (user !== undefined) {
                     return `logged as ${user}`
                 }else{
                     return <button><Link className="navBar-link" to="/Login">Login</Link></button>
