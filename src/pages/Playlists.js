@@ -1,8 +1,9 @@
-
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Playlist from '../components/Playlist'
 import {checkAndReturnToken} from "../Utils";
+
+
 
 class Playlists extends React.Component {
 
@@ -47,14 +48,13 @@ class Playlists extends React.Component {
     }
 
     render() {
-
         const categoryName = this.props.location && this.props.location.state ?
             this.props.location.state.categoryName : 'Default';
 
         return (
             <div>
-               <h1>{categoryName}</h1>
-                <section>
+               <h1 className="category__name">{categoryName}</h1>
+                <section className="row">
                     {this.state.playlists.map(playlist => {
                         return (
                             <Playlist
@@ -62,6 +62,7 @@ class Playlists extends React.Component {
                                 name={playlist.name}
                                 id={playlist.id}
                                 image={playlist.image}
+                                desc={playlist.description}
                             />
                             )
                         })

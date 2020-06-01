@@ -1,44 +1,9 @@
 import React from "react";
-import { withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Category from "../components/Category";
 import { checkAndReturnToken } from '../Utils';
+import Playlists from "./Playlists";
 
-/*function Categories () {
-    let [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        getCategories();
-    },[]);
-
-    const getCategories = async () => {
-        const token = localStorage.getItem('token');
-        const parsedToken = JSON.parse(token);
-
-        const response = await fetch('https://api.spotify.com/v1/browse/categories', {
-            method:'GET',
-            headers: {
-                Authorization: `Bearer ${parsedToken.token}`
-            }})
-        const data = await response.json();
-        setCategories = data;
-        console.log(data)
-    }
-    return (
-        <div className="categories">
-            <h1>hello</h1>
-            <div>
-            {categories.map(category => (
-                <Category
-                    name = {category.name}
-                    id = {category.id}
-                    url = {category.url}
-                />
-            ))}
-            </div>
-        </div>
-    );
-}
-export default Categories*/
 
 class Categories extends React.Component {
 
@@ -71,15 +36,40 @@ class Categories extends React.Component {
             });
             this.setState({
                 categories: categoriesMap});
-            console.log(categoriesMap);
         };
 
         getCategories();
 
     }
 
-    render() {
-        return this.state.categories.map(category => {
+    render(){
+        return (
+            <Switch>
+                <Route
+                    path={`${this.props.match.path}/:id`}
+                    component={Playlists}
+                />
+                <Route
+                    path={`${this.props.match.path}*`}
+            >
+            <div className="row">
+                    {this.state.categories.map(category => {
+                            return (
+                                <Category
+                                    key={category.name}
+                                    name={category.name}
+                                    id={category.id}
+                                    url={category.url}
+                                />
+                            )
+                        })
+                    }
+            </div>
+                </Route>
+            </Switch>
+        );
+    }
+       /* return this.state.categories.map(category => {
             return (
                 <Category
                     key={category.name}
@@ -88,8 +78,7 @@ class Categories extends React.Component {
                     url={category.url}
                 />
             )
-        });
-    }
+        });*/
 }
 
 export default withRouter(Categories)

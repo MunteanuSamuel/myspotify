@@ -1,33 +1,52 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import './ComponentsStyle/NavBar.css';
+
+import NavBar from "./components/NavBar";
+
 import About from './pages/About';
+import Categories from './pages/Categories';
 import Login from './pages/Login';
-import Category from "./components/Category";
-import NavBar from "./components/NavBar"
-import Categories from "./pages/Categories";
-import {Route, Switch} from 'react-router-dom'
 import SpotifyCallBack from "./pages/SpotifyCallBack";
-import Playlists from "./pages/Playlists";
-import Tracks from "./pages/Tracks";
+import Tracks from './pages/Tracks';
 
 function App() {
-  return (
-      <div className="App">
-          <NavBar />
-          <Switch>
-              <Route path={"/"} exact={true} render={ () => <div>Home Page</div>}/>
-              <Route path={"/about"} component={About}/>
-              <Route path={"/login"} component={Login}/>
-              <Route path={"/categories"} exact component={Categories}/>
-              <Route path={"/categories/:id"} component={Category}/>
-              <Route path={"/playlists/:id"} component={Playlists}/>
-              <Route path={"/tracks/:id"} component={Tracks}/>
-              <Route path={"/callback"} component={SpotifyCallBack}/>
-          </Switch>
-      </div>
-  );
+
+    return (
+        <div className="App">
+            <NavBar
+            />
+            <main>
+                <Switch>
+                    <Route
+                        path="/"
+                        exact={true}
+                        render={() => (<div>Home page</div>)}
+                    />
+                    <Route
+                        path="/about"
+                        component={About}
+                    />
+                    <Route
+                        path="/login"
+                        component={Login}
+                    />
+                    <Route
+                        path="/categories*"
+                        component={Categories}
+                    />
+                    <Route
+                        path="/playlists/:id"
+                        component={Tracks}
+                    />
+                    <Route
+                        path="/callback"
+                        component={SpotifyCallBack}
+                    />
+                </Switch>
+            </main>
+        </div>
+    );
 }
 
 export default App;
-
