@@ -31,7 +31,6 @@ const NavBar = () => {
 
             const data = await response.json();
             setUser(data.display_name);
-
         }
     };
 

@@ -3,7 +3,7 @@ import '../PagesStyle/Login.css'
 
 
 class LabeledInput extends React.Component {
-    state = {};
+    state = { };
 
     onChangeHandler = e => {
         console.log(e.target.value);
@@ -38,7 +38,7 @@ class LabeledInput extends React.Component {
                     className="form-control"
                     type="text"
                     id={this.props.id}
-                    value={this.state.value}
+                    value={this.state.value || ''}
                     placeholder={this.props.placeholder}
                     onChange={this.onChangeHandler}>
                 </input>

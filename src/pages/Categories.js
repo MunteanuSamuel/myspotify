@@ -1,46 +1,66 @@
 import React from "react";
 import { Switch, Route, withRouter } from 'react-router-dom';
+import BounceLoader from "react-spinners/BounceLoader"
+
 import Category from "../components/Category";
-import { checkAndReturnToken } from '../Utils';
 import Playlists from "./Playlists";
+
+import { checkAndReturnToken } from '../Utils';
+
 
 
 class Categories extends React.Component {
 
     state = {
-        categories: []
+        categories: [],
+        isLoading: false
     };
 
     componentDidMount() {
+        try {
+            const token = checkAndReturnToken(this.props.history);
 
-        const token = checkAndReturnToken(this.props.history);
+            if (token === null) {
+                return;
+            }
 
-        if (token === null) {
-            return;
+            this.setState({
+                isLoading: true
+            });
+
+            const getCategories = async () => {
+                const categories = await fetch('https://api.spotify.com/v1/browse/categories', {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                const categoriesResp = await categories.json();
+                const categoriesMap = categoriesResp.categories.items.map(item => {
+                    return {
+                        id: item.id,
+                        name: item.name,
+                        url: item.icons && item.icons.length > 0 ? item.icons[0].url : '',
+                    };
+                });
+                this.setState({
+                    categories: categoriesMap,
+                    isLoading: false
+                });
+            };
+            getCategories();
+        } catch (error) {
+            console.log(error);
+            throw new Error('Failed to fetch categories')
+        } finally {
+            console.log('I am at the end of categories');
+            this.setState({
+
+                })
         }
 
-        const getCategories = async () => {
-            const categories = await fetch('https://api.spotify.com/v1/browse/categories', {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const categoriesResp = await categories.json();
-            const categoriesMap = categoriesResp.categories.items.map(item => {
-                return {
-                    id: item.id,
-                    name: item.name,
-                    url: item.icons && item.icons.length > 0 ? item.icons[0].url : '',
-                };
-            });
-            this.setState({
-                categories: categoriesMap});
-        };
-
-        getCategories();
-
     }
+
 
     render(){
         return (
@@ -53,32 +73,31 @@ class Categories extends React.Component {
                     path={`${this.props.match.path}*`}
             >
             <div className="row">
-                    {this.state.categories.map(category => {
+                    {
+                        this.state.isLoading ?
+                            <BounceLoader
+                                color="#21D4FD"
+                                css={{
+                                    margin: '0 auto'
+                                }}
+                            /> : (
+                        this.state.categories && this.state.categories.length > 0 ?
+                        this.state.categories.map((category, index) => {
                             return (
                                 <Category
-                                    key={category.name}
+                                    key={`Category ${index}`}
                                     name={category.name}
                                     id={category.id}
                                     url={category.url}
                                 />
                             )
-                        })
+                        }) : 'Nici o categorie gasita.')
                     }
             </div>
                 </Route>
             </Switch>
         );
     }
-       /* return this.state.categories.map(category => {
-            return (
-                <Category
-                    key={category.name}
-                    name={category.name}
-                    id={category.id}
-                    url={category.url}
-                />
-            )
-        });*/
 }
 
 export default withRouter(Categories)

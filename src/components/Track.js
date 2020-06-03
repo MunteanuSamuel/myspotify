@@ -21,7 +21,7 @@ const Track = (props) => {
                             {
                                 props.artists.map(artist => {
                                     return (
-                                        <li className="artist">
+                                        <li key={`Artist ${artist}`} className="artist">
                                             { artist }
                                         </li>
                                     )
