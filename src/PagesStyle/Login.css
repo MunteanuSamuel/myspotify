@@ -1,25 +1,22 @@
-.labeled-input {
+.labeled__input {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
 }
 
-#User_Id, #User_Password, #Buton_Submit {
-    color: grey;
-    padding: 20px;
-    margin: 20px 20px 0 20px;
-    display: inline-flex;
-    align-self: center;
+.input__label{
+    color: #21D4FD;
+    font-weight: bold;
 }
 
-.InputForm {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    width: 400px;
-    padding: 40px 20px 20px 20px;
-    border-top: 10px solid #B91A74;
-    border-radius: 5px;
-    margin: 50px auto;
+.form__control {
+    width: 50%;
+}
+
+.btn{
+    margin: 10px 0;
+    color: black;
+    background-color: white;
+    border: #21D4FD 2px solid;
 }

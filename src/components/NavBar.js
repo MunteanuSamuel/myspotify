@@ -50,9 +50,6 @@ const NavBar = () => {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <section className="collapse navbar-collapse" id="nav__container">
-                <div>
-                    <SearchBar/>
-                </div>
                 <ul className="list__container navbar-nav">
                     <li className="nav__item">
                         <Link className="nav__link" to="/"><FontAwesomeIcon

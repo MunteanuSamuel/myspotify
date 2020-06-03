@@ -21,21 +21,22 @@ class LabeledInput extends React.Component {
 
         const style = {
           marginBottom: '10px',
-          color: '#929929',
+          color: '#21D4FD',
           fontSize: '18px',
           fontFamily: 'roboto'
         };
 
         return (
-            <div className='input-group labeled-input'>
+            <div className='input__group labeled__input'>
                 <label
                     htmlFor={this.props.id}
                     style={style}
+                    className="input__label"
                 >
                     {this.props.label}
                 </label>
                 <input
-                    className="form-control"
+                    className="form__control"
                     type="text"
                     id={this.props.id}
                     value={this.state.value || ''}

@@ -10,6 +10,7 @@ import ErrorBoundary from "./pages/ErrorBoundary";
 import Login from './pages/Login';
 import SpotifyCallBack from "./pages/SpotifyCallBack";
 import Tracks from './pages/Tracks';
+import SearchBar from "./components/SearchBar";
 
 function App() {
 
@@ -23,7 +24,13 @@ function App() {
                         <Route
                             path="/"
                             exact={true}
-                            render={() => (<div>Home page</div>)}
+                            render={() => (
+                                <div>
+                                    <p>Home page</p>
+                                    <div>
+                                        <SearchBar/>
+                                    </div>
+                                </div>)}
                         />
                         <Route
                             path="/about"

@@ -44,7 +44,6 @@ class Login extends React.Component {
                 change={this.onChangeHandler}
                 />
                 <button type="button" className="btn btn-primary" onClick={this.onClickHandler}>Login</button>
-
             </div>
         )
     }
