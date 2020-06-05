@@ -13,7 +13,6 @@ const Player = (props) => {
                 frameBorder="0"
                 allowTransparency="true"
                 allow="encrypted-media">
-
             </iframe>
         )
     } else {

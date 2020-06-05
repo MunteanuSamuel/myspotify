@@ -1,15 +1,20 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Track from "../components/Track";
+import ScaleLoader from "react-spinners/ScaleLoader";
+
 import Player from "../components/Player";
+import Track from "../components/Track";
+
 import {checkAndReturnToken} from "../Utils";
 import '../PagesStyle/Tracks.css';
+
 
 class Tracks extends React.Component {
 
     state = {
         tracks: [],
-        currentTrackId: null
+        currentTrackId: null,
+        isLoading: false
     };
 
     componentDidMount() {
@@ -25,9 +30,12 @@ class Tracks extends React.Component {
                     return;
                 }
 
+                this.setState({
+                    isLoading: true
+                });
 
                 const getTracks = async () => {
-                    const tracks = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=20`, {
+                    const tracks = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=20&country=RO`, {
                         method: 'GET',
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -48,7 +56,8 @@ class Tracks extends React.Component {
                         }
                     });
                     this.setState({
-                        tracks: tracksMap
+                        tracks: tracksMap,
+                        isLoading: false
                     });
 
                 };
@@ -59,9 +68,6 @@ class Tracks extends React.Component {
             throw new Error('Failed to fetch tracks')
         } finally {
             console.log('I am at the end of tracks');
-            this.setState({
-                isLoading: false
-            })
         }
     }
 
@@ -85,7 +91,15 @@ class Tracks extends React.Component {
                 <section className="content__wrapper">
                     <section className="section__tracks">
                         <ul className="tracks__wrapper">
-                            { this.state.tracks.map((track, index) => {
+                            { this.state.isLoading ?
+                                <ScaleLoader
+                                    color="#21D4FD"
+                                    css={{
+                                        margin: '0 auto'
+                                    }}
+                                /> :
+
+                                this.state.tracks.map((track, index) => {
 
                                 const isTrackPicked = track.id === this.state.currentTrackId;
 

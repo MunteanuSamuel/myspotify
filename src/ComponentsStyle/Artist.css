@@ -1,0 +1,71 @@
+/*.search__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.searched__artist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 150px;
+    height: 150px;
+}*/
+
+.searched__artist {
+    width: 100%;
+}
+
+.search__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 200px;
+    height: 200px;
+    padding: 12px 10px 14px;
+    margin: 10px 10px;
+    border-radius: 12px;
+
+    background: rgb(19,118,156);
+    background: linear-gradient(236deg, rgba(19,118,156,1) 0%, rgba(33,214,253,0.865983893557423) 35%, rgba(170,232,245,1) 100%);
+
+    cursor: pointer;
+
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+.search__wrapper:hover {
+    transform: scale(1.1);
+}
+
+.search__name {
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'Roboto Condensed';
+    font-weight: bold;
+    margin: 10px 0 15px;
+}
+
+.search__popularity {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.search__name,
+.search__popularity {
+    color: #727272;
+}
+
+
+
+

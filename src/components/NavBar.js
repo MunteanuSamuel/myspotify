@@ -38,23 +38,23 @@ const NavBar = () => {
                 if (user !== undefined) {
                     return `logged as ${user}`
                 }else{
-                    return <button className="loggin__btn"><Link className="loggin__link" to="/Login">Login</Link></button>
+                    return <Link className="loggin__link" to="/Login"><button className="loggin__btn">Login</button></Link>
                 }
         };
 
     return (
         <nav className="navbar__component navbar-expand-lg navbar-light bg-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#nav__container" aria-controls="nav__container" aria-expanded="false"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <section className="collapse navbar-collapse" id="nav__container">
+            <section className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="list__container navbar-nav">
                     <li className="nav__item">
                         <Link className="nav__link" to="/"><FontAwesomeIcon
                             icon={faHome}
-                        /> Home<span className="sr-only">(current)</span></Link>
+                        /> Home</Link>
                     </li>
 
                     <li className="nav__item">

@@ -1,40 +1,3 @@
-/*import React from "react";
-
-
-class SearchBar extends React.Component {
-    state = {
-        value: "",
-    };
-
-    handleChange = e => {
-        //let inputText = e.target.value;
-        console.log(e.target.value);
-        this.setState({
-            value: e.target.value
-        });
-    };
-
-    render() {
-
-        return (
-            <form className={'form-inline my-2 my-lg-0'}>
-                <input
-                    className="search-bar"
-                    type="text"
-                    id={this.props.id}
-                    value={this.state.value}
-                    placeholder={this.props.placeholder}
-                    onChange={this.handleChange}>
-                </input>
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        )
-    }
-}
-
-export default SearchBar;*/
-
-
 
 import React, {useEffect, useState} from "react";
 
@@ -43,13 +6,14 @@ import Artist from "./Artist";
 
 const SearchBar = () => {
 
-    const [artists, setArtists] = useState('');
+    const [artists, setArtists] = useState([]);
     const [input, setInput] = useState('');
     const [query, setQuery] = useState('');
 
     useEffect(() => {
         searchArtist();
-    }, []);
+    }, [query]);
+
 
     const token = localStorage.getItem('token');
     const parsedToken = JSON.parse(token);
@@ -57,9 +21,8 @@ const SearchBar = () => {
     const type = 'artist';
 
 
-
     const searchArtist = async () => {
-        if (token !== null && token !== undefined && input.length > 0) {
+        if (token !== null && token !== undefined && query.length > 0) {
             console.log(query);
             console.log(input);
             const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`,
@@ -72,7 +35,15 @@ const SearchBar = () => {
             );
 
             const data = await response.json();
-            setArtists(data);
+            const dataMap = data.artists.items.map(item => {
+                return {
+                    id: item.id,
+                    name: item.name,
+                    popularity: item.popularity
+                };
+            });
+            setArtists(dataMap);
+            console.log(dataMap);
         }
     };
 
@@ -89,31 +60,31 @@ const SearchBar = () => {
     };
 
 
-    return (
-        <div>
-            <form className={'form-inline my-2 my-lg-0'}>
-                <input
-                    className="search__bar"
-                    type="text"
-                    value={input}
-                    onChange={updateSearch}>
-                </input>
-                <button onClick={getSearch} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <div className="searched__artist">
-                {/*{artists.map(item => {
-                    return (
-                    <Artist
-                        key={item.id}
-                        name={item.name}
-                        image={item.images[0]}
-                        popularity={item.popularity}
-                    />
-                        )})}*/}
+        return (
+            <div>
+                <form className={'form-inline my-2 my-lg-0'}>
+                    <input
+                        className="search__bar"
+                        type="text"
+                        value={input}
+                        onChange={updateSearch}>
+                    </input>
+                    <button onClick={getSearch} className="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <div className="row searched__artist">
+                    {artists.map(artist => {
+                        return (
+                        <Artist
+                            id={artist.id}
+                            name={artist.name}
+                            popularity={artist.popularity}
+                        />
+                            )})}
+                </div>
             </div>
-        </div>
 
-    )
+        )
+
 };
 
 export default SearchBar;

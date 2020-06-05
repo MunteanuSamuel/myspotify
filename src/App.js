@@ -25,9 +25,15 @@ function App() {
                             path="/"
                             exact={true}
                             render={() => (
-                                <div>
-                                    <p>Home page</p>
-                                    <div>
+                                <div
+                                className='home__wrapper'>
+                                    <h3 className='home__title'>Home page</h3>
+                                    <p>
+                                        Welcome to MySpotify App. Enjoy listening to your favourite music.
+                                        You can search for an artist or go check the most wanted categories,
+                                        chose a playlist and listen to our finest list of tracks.
+                                    </p>
+                                    <div className='home__search'>
                                         <SearchBar/>
                                     </div>
                                 </div>)}

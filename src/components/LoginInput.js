@@ -1,8 +1,8 @@
 import React from 'react';
-import '../PagesStyle/Login.css'
+import '../ComponentsStyle/Login.css'
 
 
-class LabeledInput extends React.Component {
+class LoginInput extends React.Component {
     state = { };
 
     onChangeHandler = e => {
@@ -16,8 +16,9 @@ class LabeledInput extends React.Component {
         });
     };
 
+
     render() {
-        console.log("LabeledInput inside render");
+        console.log("LoginInput inside render");
 
         const style = {
           marginBottom: '10px',
@@ -48,6 +49,6 @@ class LabeledInput extends React.Component {
     }
 }
 
-export default LabeledInput;
+export default LoginInput;
 
 

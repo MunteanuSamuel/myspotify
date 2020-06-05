@@ -1,10 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 
 import Playlist from '../components/Playlist'
 
 import {checkAndReturnToken} from "../Utils";
+
 
 
 class Playlists extends React.Component {
@@ -21,7 +23,6 @@ class Playlists extends React.Component {
 
             if (categoryId !== null && categoryId !== undefined) {
                 const token = checkAndReturnToken(this.props.history);
-
                 if (token === null) {
                     return;
                 }
@@ -31,7 +32,7 @@ class Playlists extends React.Component {
                 });
 
                 const getPlaylist = async () => {
-                    const playlists = await fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`, {
+                    const playlists = await fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists?country=RO`, {
                         method: 'GET',
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -47,8 +48,10 @@ class Playlists extends React.Component {
                                 item.images[0].url : ''
                         };
                     });
-                    this.setState(
-                        {playlists: playlistsMap})
+                    this.setState({
+                        playlists: playlistsMap,
+                        isLoading: false
+                        });
                 };
                 getPlaylist();
             }
@@ -57,9 +60,6 @@ class Playlists extends React.Component {
             throw new Error('Failed to fetch playlists')
         } finally {
             console.log('I am at the end of playlists');
-            this.setState({
-                isLoading: false
-            })
         }
     }
 
@@ -70,9 +70,17 @@ class Playlists extends React.Component {
 
         return (
             <div>
-               <h1 className="category__name">{categoryName}</h1>
+                <h1 className="category__name">{categoryName}</h1>
                 <section className="row">
-                    {this.state.playlists.map(playlist => {
+                    {this.state.isLoading?
+                        <ScaleLoader
+                            color="#21D4FD"
+                            css={{
+                                margin: '0 auto'
+                            }}
+                        /> :
+
+                        this.state.playlists.map(playlist => {
                         return (
                             <Playlist
                                 key={`Playlist ${playlist.id}`}

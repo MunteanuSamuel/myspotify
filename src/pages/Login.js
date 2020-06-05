@@ -1,7 +1,7 @@
 
 import React from "react";
-import LabeledInput from "../components/LabeledInput";
-
+import LoginInput from "../components/LoginInput";
+import '../ComponentsStyle/Login.css';
 
 class Login extends React.Component {
 
@@ -36,12 +36,12 @@ class Login extends React.Component {
 
     render () {
         return (
-            <div>
-                <LabeledInput
-                id="client-id"
-                label="Client ID"
-                placeholder={"Client ID"}
-                change={this.onChangeHandler}
+            <div className="loggin__wrapper">
+                <LoginInput
+                    id="client-id"
+                    label="Client ID"
+                    placeholder={"Client ID"}
+                    change={this.onChangeHandler}
                 />
                 <button type="button" className="btn btn-primary" onClick={this.onClickHandler}>Login</button>
             </div>

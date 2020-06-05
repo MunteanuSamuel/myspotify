@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, withRouter } from 'react-router-dom';
-import BounceLoader from "react-spinners/BounceLoader"
+import ScaleLoader from "react-spinners/ScaleLoader"
 
 import Category from "../components/Category";
 import Playlists from "./Playlists";
@@ -29,7 +29,7 @@ class Categories extends React.Component {
             });
 
             const getCategories = async () => {
-                const categories = await fetch('https://api.spotify.com/v1/browse/categories', {
+                const categories = await fetch('https://api.spotify.com/v1/browse/categories?country=RO', {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -75,7 +75,7 @@ class Categories extends React.Component {
             <div className="row">
                     {
                         this.state.isLoading ?
-                            <BounceLoader
+                            <ScaleLoader
                                 color="#21D4FD"
                                 css={{
                                     margin: '0 auto'

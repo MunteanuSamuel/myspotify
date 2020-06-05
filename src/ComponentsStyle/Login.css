@@ -1,0 +1,40 @@
+.loggin__wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.labeled__input {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input__label{
+    color: #21D4FD;
+    font-weight: bold;
+}
+
+.form__control {
+    width: 400px;
+}
+
+.btn-primary {
+    margin: 10px 0;
+    color: black;
+    background-color: white;
+    border: #21D4FD 2px solid;
+}
+
+.btn-primary {
+    color: #21D4FD;
+    border-color: #21D4FD;
+}
+
+.btn-primary:hover {
+    border-color: #21D4FD;
+    background-color: #21D4FD;
+}
