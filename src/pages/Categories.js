@@ -58,7 +58,6 @@ class Categories extends React.Component {
 
                 })
         }
-
     }
 
 

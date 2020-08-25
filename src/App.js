@@ -33,6 +33,7 @@ function App() {
                                         You can search for an artist or go check the most wanted categories,
                                         chose a playlist and listen to our finest list of tracks.
                                     </p>
+
                                     <div className='home__search'>
                                         <SearchBar/>
                                     </div>

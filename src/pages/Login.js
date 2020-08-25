@@ -37,13 +37,15 @@ class Login extends React.Component {
     render () {
         return (
             <div className="loggin__wrapper">
-                <LoginInput
-                    id="client-id"
-                    label="Client ID"
-                    placeholder={"Client ID"}
-                    change={this.onChangeHandler}
-                />
-                <button type="button" className="btn btn-primary" onClick={this.onClickHandler}>Login</button>
+                <section className="loggin__box">
+                    <LoginInput
+                        id="client-id"
+                        label="Client ID"
+                        placeholder={"Client ID"}
+                        change={this.onChangeHandler}
+                    />
+                    <button type="button" className="btn btn-primary" onClick={this.onClickHandler}>Login</button>
+                </section>
             </div>
         )
     }

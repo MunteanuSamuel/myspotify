@@ -69,7 +69,7 @@ const SearchBar = () => {
                         value={input}
                         onChange={updateSearch}>
                     </input>
-                    <button onClick={getSearch} className="btn my-2 my-sm-0" type="submit">Search</button>
+                    <button onClick={getSearch} className="btn {/*my-2 my-sm-0*/}" type="submit">Search</button>
                 </form>
                 <div className="row searched__artist">
                     {artists.map(artist => {

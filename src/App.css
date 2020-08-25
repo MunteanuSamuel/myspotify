@@ -27,7 +27,7 @@
     border-color: #21D4FD;
     margin: 0 auto;
     width: 80%;
-    height: 38px;
+    height: 40px;
     border-radius: 12px;
 }
 
@@ -39,6 +39,7 @@
 .form-inline button {
     width: 20%;
     border-radius: 12px;
+    border: 2px solid;
 }
 
 .form-inline button:hover {

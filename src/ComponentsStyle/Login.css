@@ -1,9 +1,18 @@
-.loggin__wrapper{
+.loggin__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loggin__box{
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-evenly;
+
+    width: 500px;
+    height: 250px;
 }
 
 .labeled__input {
@@ -16,10 +25,15 @@
 .input__label{
     color: #21D4FD;
     font-weight: bold;
+    margin: 20px 0;
 }
 
+
 .form__control {
-    width: 400px;
+    width: 500px;
+    border-color: #21D4FD;
+    border-radius: 12px;
+    height: 38px;
 }
 
 .btn-primary {
@@ -27,6 +41,8 @@
     color: black;
     background-color: white;
     border: #21D4FD 2px solid;
+    border-radius: 12px;
+    width: 100px;
 }
 
 .btn-primary {
