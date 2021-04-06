@@ -2,7 +2,7 @@ import React from "react";
 import '../PagesStyle/About.css'
 
 
-const About = () => {
+const Contact = () => {
 
     return (
         <div>
@@ -22,4 +22,4 @@ const About = () => {
     )
 };
 
-export default About;
+export default Contact;

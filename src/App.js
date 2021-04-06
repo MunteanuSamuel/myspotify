@@ -4,7 +4,7 @@ import './App.css';
 
 import NavBar from "./components/NavBar";
 
-import About from './pages/About';
+import Contact from './pages/Contact';
 import Categories from './pages/Categories';
 import ErrorBoundary from "./pages/ErrorBoundary";
 import Login from './pages/Login';
@@ -40,8 +40,8 @@ function App() {
                                 </div>)}
                         />
                         <Route
-                            path="/about"
-                            component={About}
+                            path="/contact"
+                            component={Contact}
                         />
                         <Route
                             path="/login"
